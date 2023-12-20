@@ -1,0 +1,9 @@
+src/epics/*
+src/reducers/*
+src/actions/*
+src/constants/*
+src/slices/*
+src/@types/*
+src/store/*
+src/hooks/*
+src/utils/*

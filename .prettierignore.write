@@ -1,0 +1,16 @@
+*.json
+*.yml
+*.md
+*.html
+
+.idea
+.next
+.npm
+.vscode
+dist
+logs
+node_modules
+storybook-static
+.babelrc
+.eslintrc.js
+.prettierrc
