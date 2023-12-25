@@ -1,6 +1,6 @@
 import React from 'react';
-import Temp from '@/components/temp';
+import Home from '@/components/home';
 
-export default function Home() {
-	return <Temp />;
+export default function Index() {
+	return <Home />;
 }
