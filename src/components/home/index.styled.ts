@@ -19,7 +19,7 @@ export const Container = styled.div`
 `;
 
 export const ProjectController = styled.div`
-	border-bottom: 1px silver solid;
+	/* border-bottom: 1px silver solid; */
 `;
 
 export const ImageController = styled.div`
