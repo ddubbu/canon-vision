@@ -7,17 +7,23 @@ const GNB_HEIGHT = {
 	pc: '230px',
 };
 
+export const LogoPaddingLeft = {
+	mobile: '45px',
+	pc: '45px',
+};
+
 export const Wrapper = styled.div`
-	padding-left: 45px;
 	display: flex;
 	align-items: center;
 
 	${BreakPoint({
 		MobileStyle: css`
 			height: ${GNB_HEIGHT.mobile};
+			padding-left: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
 			height: ${GNB_HEIGHT.pc};
+			padding-left: ${LogoPaddingLeft.pc};
 		`,
 	})}
 `;

@@ -28,7 +28,7 @@ const ImageController: React.FC<{ imgSrcList: string[] }> = ({ imgSrcList }) => 
 	);
 };
 
-const HomeComponent: React.FC = () => {
+const Home: React.FC = () => {
 	const length = PROJECT_DATA.length;
 
 	const isMobile = useLayoutIsMobile();
@@ -65,4 +65,4 @@ const HomeComponent: React.FC = () => {
 	}
 };
 
-export default HomeComponent;
+export default Home;
