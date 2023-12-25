@@ -17,6 +17,12 @@ export const Wrapper = styled.div`
 	})}
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+	font-family: minion-pro, serif;
+	font-weight: 400;
+	font-style: normal;
+`;
 
-export const SilverText = styled.div``;
+export const SilverText = styled.div`
+	color: gray;
+`;

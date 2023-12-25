@@ -23,6 +23,7 @@ const Index: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
 
 	return (
 		<>
+			<link rel="stylesheet" href="https://use.typekit.net/aga0rpu.css"></link>
 			<Global styles={GlobalStyle} />
 			<LayoutStyled.Container>
 				<GNB handleClickLogo={handleClickLogo} />
