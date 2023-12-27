@@ -24,7 +24,7 @@ const Index = () => {
 		<>
 			<Head>
 				<title>canon vision</title>
-				<link rel="icon" href="/assets/common/favicon.jpg" />
+				<link rel="icon" href="/assets/common/favicon.v231227.png" />
 				<meta name="description" content="an architecture practice" />{' '}
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<link rel="stylesheet" href="https://use.typekit.net/aga0rpu.css"></link>
