@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 		PcStyle: css`
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			height: calc(100vh - ${GNB_HEIGHT.pc});
 		`,
 		MobileStyle: css`
 			padding-left: ${LogoPaddingLeft.mobile};
@@ -29,10 +30,8 @@ export const Container = styled.div`
 			margin-right: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			height: calc(100vh - ${GNB_HEIGHT.pc});
+			margin: auto 0;
+
 			margin-right: ${LogoPaddingLeft.pc};
 		`,
 	})}
