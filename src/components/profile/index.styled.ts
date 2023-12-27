@@ -3,8 +3,12 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { GNB_HEIGHT, LogoPaddingLeft } from '../layout/GNB/index.styled';
 
+const MAX_WIDTH = '1500px';
+
 export const Wrapper = styled.div`
+	margin: 0 auto;
 	width: 100%;
+	max-width: ${MAX_WIDTH};
 
 	${BreakPoint({
 		PcStyle: css`
@@ -30,8 +34,9 @@ export const Container = styled.div`
 			margin-right: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
-			margin: auto 0;
-
+			/* TODO: vertical centerizing 필요하면 */
+			/* margin: auto 0; */
+			margin-top: 200px;
 			margin-right: ${LogoPaddingLeft.pc};
 		`,
 	})}

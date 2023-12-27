@@ -9,7 +9,7 @@ export const GNB_HEIGHT = {
 
 export const LogoPaddingLeft = {
 	mobile: '45px',
-	pc: '45px',
+	pc: '145px',
 };
 
 export const Wrapper = styled.div`
