@@ -1,7 +1,7 @@
 import { BreakPoint } from '@/utils/media.utils';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { LogoPaddingLeft } from '../layout/GNB/index.styled';
+import { GNB_HEIGHT, LogoPaddingLeft } from '../layout/GNB/index.styled';
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -29,6 +29,10 @@ export const Container = styled.div`
 			margin-right: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: calc(100vh - ${GNB_HEIGHT.pc});
 			margin-right: ${LogoPaddingLeft.pc};
 		`,
 	})}
