@@ -10,10 +10,10 @@ export const Container = styled.div`
 
 	${BreakPoint({
 		MobileStyle: css`
-			grid-template-columns: 1fr 2fr 1fr;
+			grid-template-columns: 0.5fr 2fr 0.5fr;
 		`,
 		PcStyle: css`
-			grid-template-columns: 1fr 2fr 2fr 1fr;
+			grid-template-columns: 0.3fr 2fr 2fr 0.3fr;
 		`,
 	})}
 `;

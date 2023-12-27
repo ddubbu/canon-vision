@@ -3,13 +3,18 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { GNB_HEIGHT, LogoPaddingLeft } from '../layout/GNB/index.styled';
 
+const MAX_WIDTH = '1500px';
+
 export const Wrapper = styled.div`
+	margin: 0 auto;
 	width: 100%;
+	max-width: ${MAX_WIDTH};
 
 	${BreakPoint({
 		PcStyle: css`
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			height: calc(100vh - ${GNB_HEIGHT.pc});
 		`,
 		MobileStyle: css`
 			padding-left: ${LogoPaddingLeft.mobile};
@@ -29,10 +34,9 @@ export const Container = styled.div`
 			margin-right: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			height: calc(100vh - ${GNB_HEIGHT.pc});
+			/* TODO: vertical centerizing 필요하면 */
+			/* margin: auto 0; */
+			margin-top: 200px;
 			margin-right: ${LogoPaddingLeft.pc};
 		`,
 	})}
