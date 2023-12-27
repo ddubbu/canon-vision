@@ -2,9 +2,9 @@ import { BreakPoint } from '@/utils/media.utils';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const GNB_HEIGHT = {
+export const GNB_HEIGHT = {
 	mobile: '120px',
-	pc: '230px',
+	pc: '150px',
 };
 
 export const LogoPaddingLeft = {
