@@ -44,37 +44,34 @@ const Profile: React.FC = () => {
 				Ahn Kihyun and Hee Joon Lee studied architecture at Seoul National University. Ahn Kihyun gained professional
 				experience after graduation. Hee Joon Lee proceeded to study at the Royal College of Art in London.
 				<ParagraphSpacing />
-				Hee Joon Lee runs a teaching studio at{' '}
-				<span
-					style={{ cursor: 'pointer' }}
+				Hee Joon Lee runs a teaching studio at
+				<Styled.PointerText
 					onClick={() => {
 						handleRouter(LINK.instagram_studioheejoonlee);
 					}}
 				>
 					Hanyang University
-				</span>
+				</Styled.PointerText>
 				ERICA as an adjunct professor and at the
-				<span
-					style={{ cursor: 'pointer' }}
+				<Styled.PointerText
 					onClick={() => {
 						handleRouter(LINK.instagram_studio_ko_lee);
 					}}
 				>
 					Architectural Association Visiting School Seoul
-				</span>
+				</Styled.PointerText>
 				as a unit tutor.
 				<ParagraphSpacing />
 				Ahn Kihyun is licensed and registered at the Korea Architects Registration Board.
 				<ParagraphSpacing />
 				Hee Joon Lee regularly
-				<span
-					style={{ cursor: 'pointer' }}
+				<Styled.PointerText
 					onClick={() => {
 						handleRouter(LINK.instagram_heejoonlee_publications);
 					}}
 				>
 					writes, lectures, and attends reviews
-				</span>
+				</Styled.PointerText>
 				in schools of architecture.
 				<Spacing size={30} />
 				<Styled.SilverText

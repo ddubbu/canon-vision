@@ -19,7 +19,8 @@ export const Container = styled.div`
 `;
 
 export const ProjectController = styled.div`
-	/* border-bottom: 1px silver solid; */
+	/* TODO: DELETE 가상선 */
+	background-color: #fffcdd;
 `;
 
 export const ImageController = styled.div`
@@ -36,6 +37,9 @@ export const ImageController = styled.div`
 export const ImageWrapper = styled.img`
 	display: block;
 	width: 100%;
+
+	/* TODO: DELETE 가상선 */
+	border: 1px solid silver;
 `;
 
 const CommonControllerStyle = css`
