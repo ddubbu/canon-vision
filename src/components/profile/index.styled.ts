@@ -21,6 +21,17 @@ export const Container = styled.div`
 	font-family: minion-pro, serif;
 	font-weight: 400;
 	font-style: normal;
+
+	/* word-break: break-all; */
+
+	${BreakPoint({
+		MobileStyle: css`
+			margin-right: ${LogoPaddingLeft.mobile};
+		`,
+		PcStyle: css`
+			margin-right: ${LogoPaddingLeft.pc};
+		`,
+	})}
 `;
 
 export const SilverText = styled.div`
