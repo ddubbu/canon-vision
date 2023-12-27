@@ -24,5 +24,15 @@ export const Container = styled.div`
 `;
 
 export const SilverText = styled.div`
-	color: gray;
+	color: #808080;
+`;
+
+export const PointerText = styled.span`
+	cursor: pointer;
+	:hover {
+		color: #808080;
+	}
+
+	/* fyi. 좌우 여백 */
+	margin: 0 3px;
 `;
