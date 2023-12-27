@@ -53,6 +53,9 @@ export const LeftController = styled.div`
 
 	left: 0;
 	width: 50%;
+
+	/* TODO: DELETE 가상배경 */
+	background-color: rgba(198, 255, 123, 0.1);
 `;
 
 export const RightController = styled.div`
@@ -60,4 +63,7 @@ export const RightController = styled.div`
 
 	right: 0;
 	width: 50%;
+
+	/* TODO: DELETE 가상배경 */
+	background-color: rgba(255, 155, 123, 0.1);
 `;
