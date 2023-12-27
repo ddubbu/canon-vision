@@ -10,7 +10,7 @@ import Head from 'next/head';
 type PageType = 'home' | 'profile';
 
 const Index = () => {
-	const [type, setType] = useState<PageType>('profile');
+	const [type, setType] = useState<PageType>('home');
 
 	const handleClickLogo = () => {
 		if (type === 'profile') {
