@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 	${BreakPoint({
 		MobileStyle: css`
-			grid-template-columns: 0.5fr 2fr 0.5fr;
+			grid-template-columns: 0 2fr 0;
 		`,
 		PcStyle: css`
 			grid-template-columns: 0.3fr 2fr 2fr 0.3fr;
@@ -18,10 +18,7 @@ export const Container = styled.div`
 	})}
 `;
 
-export const ProjectController = styled.div`
-	/* TODO: DELETE 가상선 */
-	background-color: #fffcdd;
-`;
+export const ProjectController = styled.div``;
 
 export const ImageController = styled.div`
 	position: relative;
@@ -32,14 +29,18 @@ export const ImageController = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	${BreakPoint({
+		PcStyle: css``,
+		MobileStyle: css`
+			padding: 0 25px;
+		`,
+	})}
 `;
 
 export const ImageWrapper = styled.img`
 	display: block;
 	width: 100%;
-
-	/* TODO: DELETE 가상선 */
-	border: 1px solid silver;
 `;
 
 const CommonControllerStyle = css`
@@ -51,11 +52,16 @@ const CommonControllerStyle = css`
 export const LeftController = styled.div`
 	${CommonControllerStyle}
 
-	left: 0;
-	width: 50%;
-
-	/* TODO: DELETE 가상배경 */
-	background-color: rgba(198, 255, 123, 0.1);
+	${BreakPoint({
+		PcStyle: css`
+			left: 0;
+			width: 50%;
+		`,
+		MobileStyle: css`
+			left: 0;
+			width: 50%;
+		`,
+	})}
 `;
 
 export const RightController = styled.div`
@@ -63,7 +69,4 @@ export const RightController = styled.div`
 
 	right: 0;
 	width: 50%;
-
-	/* TODO: DELETE 가상배경 */
-	background-color: rgba(255, 155, 123, 0.1);
 `;
