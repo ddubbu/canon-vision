@@ -48,6 +48,7 @@ const Home: React.FC = () => {
 		const mergedData = [...projectData.imageList, ...projectData.draftList];
 		return (
 			<Styled.Container>
+				{/* fyi. CSS grid 0fr 로 기능 제거 */}
 				<Styled.ProjectController onClick={handleLeftClick} />
 				<ImageController imgSrcList={mergedData} />
 				<Styled.ProjectController onClick={handleRightClick} />
