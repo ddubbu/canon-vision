@@ -41,18 +41,18 @@ const Profile: React.FC = () => {
 				<Spacing size={30} />
 				canon vision is an architecture practice founded and led by Ahn Kihyun and Hee Joon Lee.
 				<ParagraphSpacing />
-				Ahn Kihyun is a registered architect. Kihyun studied architecture at Seoul National University and has worked
-				since graduation. The professional experience spans from architecture projects of various scales to curating
-				books and participating in exhibitions.
+				Ahn Kihyun, a registered architect, studied architecture at the Seoul National University. Engaged in the field
+				since graduation, Kihyun has contributed to architectural projects of various scales and uses. The professional
+				experience also covers book curation and exhibitions.
 				<ParagraphSpacing />
-				Hee Joon Lee studied architecture at Seoul National University and the Royal College of Art in London. He is an
-				adjunct professor at
+				Hee Joon Lee studied architecture at the Seoul National University and the Royal College of Art in London. He is
+				an adjunct professor at
 				<Styled.PointerText
 					onClick={() => {
 						handleRouter(LINK.instagram_studioheejoonlee);
 					}}
 				>
-					Hanyang University ERICA
+					the Hanyang University ERICA
 				</Styled.PointerText>
 				and a unit tutor at the
 				<Styled.PointerText
