@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import * as Styled from './index.styled';
 import PROJECT_DATA from './data';
 import { getRandomIndex } from './index.util';
@@ -44,14 +44,20 @@ const Home: React.FC = () => {
 	const handleRightClick = () => {
 		setProjectIdx((prev) => (prev + 1) % length);
 	};
+
 	if (isMobile) {
-		const mergedData = [...projectData.imageList, ...projectData.draftList];
+		const mergedData = useMemo(() => {
+			return PROJECT_DATA.reduce((acc, cur) => {
+				return [...acc, ...cur.imageList, ...cur.draftList];
+			}, [] as string[]);
+		}, []);
+
 		return (
 			<Styled.Container>
-				{/* fyi. CSS grid 0fr 로 기능 제거 */}
-				<Styled.ProjectController onClick={handleLeftClick} />
+				{/* fyi. CSS grid 0fr 로 `div` display: none */}
+				<div />
 				<ImageController imgSrcList={mergedData} />
-				<Styled.ProjectController onClick={handleRightClick} />
+				<div />
 			</Styled.Container>
 		);
 	} else {
