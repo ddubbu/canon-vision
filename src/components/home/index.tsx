@@ -35,7 +35,13 @@ const Home: React.FC = () => {
 
 	const [projectIdx, setProjectIdx] = useState(getRandomIndex(length));
 
-	const projectData = PROJECT_DATA[projectIdx];
+	const projectDataInPc = PROJECT_DATA[projectIdx];
+
+	const mergedDataInMobile = useMemo(() => {
+		return PROJECT_DATA.reduce((acc, cur) => {
+			return [...acc, ...cur.imageList, ...cur.draftList];
+		}, [] as string[]);
+	}, []);
 
 	const handleLeftClick = () => {
 		setProjectIdx((prev) => (prev - 1 + length) % length);
@@ -46,17 +52,11 @@ const Home: React.FC = () => {
 	};
 
 	if (isMobile) {
-		const mergedData = useMemo(() => {
-			return PROJECT_DATA.reduce((acc, cur) => {
-				return [...acc, ...cur.imageList, ...cur.draftList];
-			}, [] as string[]);
-		}, []);
-
 		return (
 			<Styled.Container>
 				{/* fyi. CSS grid 0fr 로 `div` display: none */}
 				<div />
-				<ImageController imgSrcList={mergedData} />
+				<ImageController imgSrcList={mergedDataInMobile} />
 				<div />
 			</Styled.Container>
 		);
@@ -64,8 +64,8 @@ const Home: React.FC = () => {
 		return (
 			<Styled.Container>
 				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController imgSrcList={projectData.imageList} />
-				<ImageController imgSrcList={projectData.draftList} />
+				<ImageController imgSrcList={projectDataInPc.imageList} />
+				<ImageController imgSrcList={projectDataInPc.draftList} />
 				<Styled.ProjectController onClick={handleRightClick} />
 			</Styled.Container>
 		);
