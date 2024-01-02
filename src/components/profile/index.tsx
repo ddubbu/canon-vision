@@ -14,7 +14,7 @@ const LINK = {
 const ParagraphSpacing = () => (
 	<>
 		<br />
-		<Spacing size={3} />
+		<Spacing size={10} />
 	</>
 );
 
