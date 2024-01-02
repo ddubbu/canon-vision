@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
 	width: 100%;
-	height: 40vh;
 
 	display: grid;
+	justify-content: center;
 
 	${BreakPoint({
 		MobileStyle: css`
@@ -29,18 +29,19 @@ export const ImageController = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	${BreakPoint({
-		PcStyle: css``,
-		MobileStyle: css`
-			padding: 0 25px;
-		`,
-	})}
 `;
 
 export const ImageWrapper = styled.img`
-	display: block;
-	width: 100%;
+	${BreakPoint({
+		PcStyle: css`
+			max-width: 45vw;
+			max-height: 50vh;
+		`,
+		MobileStyle: css`
+			max-width: 80vw;
+			max-height: 70vh;
+		`,
+	})}
 `;
 
 const CommonControllerStyle = css`

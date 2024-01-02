@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import * as Styled from './index.styled';
 import PROJECT_DATA from './data';
 import { getRandomIndex } from './index.util';
@@ -35,7 +35,13 @@ const Home: React.FC = () => {
 
 	const [projectIdx, setProjectIdx] = useState(getRandomIndex(length));
 
-	const projectData = PROJECT_DATA[projectIdx];
+	const projectDataInPc = PROJECT_DATA[projectIdx];
+
+	const mergedDataInMobile = useMemo(() => {
+		return PROJECT_DATA.reduce((acc, cur) => {
+			return [...acc, ...cur.imageList, ...cur.draftList];
+		}, [] as string[]);
+	}, []);
 
 	const handleLeftClick = () => {
 		setProjectIdx((prev) => (prev - 1 + length) % length);
@@ -44,22 +50,22 @@ const Home: React.FC = () => {
 	const handleRightClick = () => {
 		setProjectIdx((prev) => (prev + 1) % length);
 	};
+
 	if (isMobile) {
-		const mergedData = [...projectData.imageList, ...projectData.draftList];
 		return (
 			<Styled.Container>
-				{/* fyi. CSS grid 0fr 로 기능 제거 */}
-				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController imgSrcList={mergedData} />
-				<Styled.ProjectController onClick={handleRightClick} />
+				{/* fyi. CSS grid 0fr 로 `div` display: none */}
+				<div />
+				<ImageController imgSrcList={mergedDataInMobile} />
+				<div />
 			</Styled.Container>
 		);
 	} else {
 		return (
 			<Styled.Container>
 				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController imgSrcList={projectData.imageList} />
-				<ImageController imgSrcList={projectData.draftList} />
+				<ImageController imgSrcList={projectDataInPc.imageList} />
+				<ImageController imgSrcList={projectDataInPc.draftList} />
 				<Styled.ProjectController onClick={handleRightClick} />
 			</Styled.Container>
 		);
