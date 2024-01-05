@@ -28,7 +28,9 @@ const ImageController: React.FC<{ projectIdx: number; imgSrcList: string[] }> = 
 
 	return (
 		<Styled.ImageController>
-			<Styled.ImageWrapper src={src} />
+			<Styled.ImageOutterWrapper>
+				<Styled.ImageWrapper src={src} />
+			</Styled.ImageOutterWrapper>
 			<Styled.LeftController onClick={handleLeftClick} />
 			<Styled.RightController onClick={handleRightClick} />
 		</Styled.ImageController>
@@ -70,11 +72,13 @@ const Home: React.FC = () => {
 	} else {
 		return (
 			<Styled.Container>
-				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.imageList} />
-				<Styled.GapBetweenImageInPC />
-				<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.draftList} />
-				<Styled.ProjectController onClick={handleRightClick} />
+				<Styled.ProjectControllerInPC onClick={handleLeftClick} />
+				<Styled.ImageControllerOutterWrapperInPC>
+					<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.imageList} />
+					<Styled.GapBetweenImageInPC />
+					<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.draftList} />
+				</Styled.ImageControllerOutterWrapperInPC>
+				<Styled.ProjectControllerInPC onClick={handleRightClick} />
 			</Styled.Container>
 		);
 	}
