@@ -27,16 +27,13 @@ export const Container = styled.div`
 	font-weight: 400;
 	font-style: normal;
 
-	/* word-break: break-all; */
-
 	${BreakPoint({
 		MobileStyle: css`
 			margin-right: ${LogoPaddingLeft.mobile};
 		`,
 		PcStyle: css`
-			/* TODO: vertical centerizing 필요하면 */
-			/* margin: auto 0; */
-			margin-top: 200px;
+			margin: auto 0;
+			padding-bottom: 20vh;
 			margin-right: ${LogoPaddingLeft.pc};
 		`,
 	})}
