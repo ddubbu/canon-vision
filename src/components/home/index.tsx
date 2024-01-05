@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
 	const isMobile = useLayoutIsMobile();
 
-	const [projectIdx, setProjectIdx] = useState(getRandomIndex(length));
+	const [projectIdx, setProjectIdx] = useState(0);
 
 	const projectDataInPc = PROJECT_DATA[projectIdx];
 
@@ -65,6 +65,7 @@ const Home: React.FC = () => {
 			<Styled.Container>
 				<Styled.ProjectController onClick={handleLeftClick} />
 				<ImageController imgSrcList={projectDataInPc.imageList} />
+				<Styled.GapBetweenImageInPC />
 				<ImageController imgSrcList={projectDataInPc.draftList} />
 				<Styled.ProjectController onClick={handleRightClick} />
 			</Styled.Container>

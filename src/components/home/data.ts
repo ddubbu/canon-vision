@@ -36,6 +36,6 @@ const Lounge_Y: Project = {
 };
 
 // TODO: 프로젝트 늘어나면, 추가할 곳
-const PROJECT_DATA: Project[] = [PAVILION_S, Lounge_Y];
+const PROJECT_DATA: Project[] = [Lounge_Y, PAVILION_S];
 
 export default PROJECT_DATA;

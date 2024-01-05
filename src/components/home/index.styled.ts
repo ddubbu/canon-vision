@@ -13,7 +13,7 @@ export const Container = styled.div`
 			grid-template-columns: 0 2fr 0;
 		`,
 		PcStyle: css`
-			grid-template-columns: 0.3fr 2fr 2fr 0.3fr;
+			grid-template-columns: 0.3fr 2fr minmax(20px, auto) 2fr 0.3fr;
 		`,
 	})}
 `;
@@ -31,11 +31,13 @@ export const ImageController = styled.div`
 	justify-content: center;
 `;
 
+export const GapBetweenImageInPC = styled.div``;
+
 export const ImageWrapper = styled.img`
 	${BreakPoint({
 		PcStyle: css`
 			max-width: 45vw;
-			max-height: 50vh;
+			max-height: 60vh;
 		`,
 		MobileStyle: css`
 			max-width: 80vw;
