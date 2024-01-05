@@ -27,8 +27,8 @@ const Profile: React.FC = () => {
 
 	return (
 		<Styled.Wrapper>
-			<Styled.Container />
-			<Styled.Container>
+			<Styled.LeftContainer />
+			<Styled.RightContainer>
 				<Styled.SilverText
 					style={{ cursor: 'pointer' }}
 					onClick={() => {
@@ -80,7 +80,7 @@ const Profile: React.FC = () => {
 				>
 					@canon__vision
 				</Styled.SilverText>
-			</Styled.Container>
+			</Styled.RightContainer>
 		</Styled.Wrapper>
 	);
 };

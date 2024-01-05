@@ -22,7 +22,9 @@ export const Wrapper = styled.div`
 	})}
 `;
 
-export const Container = styled.div`
+export const LeftContainer = styled.div``;
+
+export const RightContainer = styled.div`
 	font-family: minion-pro, serif;
 	font-weight: 400;
 	font-style: normal;
@@ -30,6 +32,7 @@ export const Container = styled.div`
 	${BreakPoint({
 		MobileStyle: css`
 			margin-right: ${LogoPaddingLeft.mobile};
+			padding-bottom: 50px;
 		`,
 		PcStyle: css`
 			margin: auto 0;
