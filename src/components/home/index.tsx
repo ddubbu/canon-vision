@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import * as Styled from './index.styled';
 import PROJECT_DATA from './data';
-import { getRandomIndex } from './index.util';
 import useLayoutIsMobile from '@/hooks/useLayoutIsMobile';
 
-const ImageController: React.FC<{ imgSrcList: string[] }> = ({ imgSrcList }) => {
+const ImageController: React.FC<{ projectIdx: number; imgSrcList: string[] }> = ({ projectIdx, imgSrcList }) => {
+	const [prevProjectIdx, setPrevProjectIdx] = useState(0);
 	const [imgIdx, setImgIdx] = useState(0);
 
 	const src = imgSrcList[imgIdx];
@@ -19,9 +19,18 @@ const ImageController: React.FC<{ imgSrcList: string[] }> = ({ imgSrcList }) => 
 		setImgIdx((prev) => (prev + 1) % length);
 	};
 
+	useEffect(() => {
+		if (projectIdx !== prevProjectIdx) {
+			setImgIdx(0);
+			setPrevProjectIdx(projectIdx);
+		}
+	}, [projectIdx, prevProjectIdx]);
+
 	return (
 		<Styled.ImageController>
-			<Styled.ImageWrapper src={src} />
+			<Styled.ImageOutterWrapper>
+				<Styled.ImageWrapper src={src} />
+			</Styled.ImageOutterWrapper>
 			<Styled.LeftController onClick={handleLeftClick} />
 			<Styled.RightController onClick={handleRightClick} />
 		</Styled.ImageController>
@@ -33,7 +42,7 @@ const Home: React.FC = () => {
 
 	const isMobile = useLayoutIsMobile();
 
-	const [projectIdx, setProjectIdx] = useState(getRandomIndex(length));
+	const [projectIdx, setProjectIdx] = useState(0);
 
 	const projectDataInPc = PROJECT_DATA[projectIdx];
 
@@ -56,17 +65,20 @@ const Home: React.FC = () => {
 			<Styled.Container>
 				{/* fyi. CSS grid 0fr 로 `div` display: none */}
 				<div />
-				<ImageController imgSrcList={mergedDataInMobile} />
+				<ImageController projectIdx={projectIdx} imgSrcList={mergedDataInMobile} />
 				<div />
 			</Styled.Container>
 		);
 	} else {
 		return (
 			<Styled.Container>
-				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController imgSrcList={projectDataInPc.imageList} />
-				<ImageController imgSrcList={projectDataInPc.draftList} />
-				<Styled.ProjectController onClick={handleRightClick} />
+				<Styled.ProjectControllerInPC onClick={handleLeftClick} />
+				<Styled.ImageControllerOutterWrapperInPC>
+					<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.imageList} />
+					<Styled.GapBetweenImageInPC />
+					<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.draftList} />
+				</Styled.ImageControllerOutterWrapperInPC>
+				<Styled.ProjectControllerInPC onClick={handleRightClick} />
 			</Styled.Container>
 		);
 	}
