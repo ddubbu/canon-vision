@@ -22,7 +22,7 @@ const Profile: React.FC = () => {
 	const router = useRouter();
 
 	const handleRouter = (url: string) => {
-		router.push(url);
+		window.open(url);
 	};
 
 	return (
