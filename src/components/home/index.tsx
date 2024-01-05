@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import * as Styled from './index.styled';
 import PROJECT_DATA from './data';
-import { getRandomIndex } from './index.util';
 import useLayoutIsMobile from '@/hooks/useLayoutIsMobile';
 
-const ImageController: React.FC<{ imgSrcList: string[] }> = ({ imgSrcList }) => {
+const ImageController: React.FC<{ projectIdx: number; imgSrcList: string[] }> = ({ projectIdx, imgSrcList }) => {
+	const [prevProjectIdx, setPrevProjectIdx] = useState(0);
 	const [imgIdx, setImgIdx] = useState(0);
 
 	const src = imgSrcList[imgIdx];
@@ -18,6 +18,13 @@ const ImageController: React.FC<{ imgSrcList: string[] }> = ({ imgSrcList }) => 
 	const handleRightClick = () => {
 		setImgIdx((prev) => (prev + 1) % length);
 	};
+
+	useEffect(() => {
+		if (projectIdx !== prevProjectIdx) {
+			setImgIdx(0);
+			setPrevProjectIdx(projectIdx);
+		}
+	}, [projectIdx, prevProjectIdx]);
 
 	return (
 		<Styled.ImageController>
@@ -56,7 +63,7 @@ const Home: React.FC = () => {
 			<Styled.Container>
 				{/* fyi. CSS grid 0fr 로 `div` display: none */}
 				<div />
-				<ImageController imgSrcList={mergedDataInMobile} />
+				<ImageController projectIdx={projectIdx} imgSrcList={mergedDataInMobile} />
 				<div />
 			</Styled.Container>
 		);
@@ -64,9 +71,9 @@ const Home: React.FC = () => {
 		return (
 			<Styled.Container>
 				<Styled.ProjectController onClick={handleLeftClick} />
-				<ImageController imgSrcList={projectDataInPc.imageList} />
+				<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.imageList} />
 				<Styled.GapBetweenImageInPC />
-				<ImageController imgSrcList={projectDataInPc.draftList} />
+				<ImageController projectIdx={projectIdx} imgSrcList={projectDataInPc.draftList} />
 				<Styled.ProjectController onClick={handleRightClick} />
 			</Styled.Container>
 		);
