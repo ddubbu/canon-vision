@@ -17,16 +17,11 @@ export const Container = styled.div`
 			display: flex;
 		`,
 	})}
-
-	border: 1px solid black;
 `;
 
 export const ProjectControllerInPC = styled.div`
-	/* min-width: 200px; */
-	min-width: 200px;
+	min-width: 100px;
 	flex-grow: 1;
-
-	background-color: green;
 `;
 export const ImageControllerOutterWrapperInPC = styled.div`
 	width: ${MAX_WIDTH}px;
@@ -45,7 +40,7 @@ export const ImageController = styled.div`
 `;
 
 export const GapBetweenImageInPC = styled.div`
-	width: 20px;
+	width: 50px;
 `;
 
 export const ImageOutterWrapper = styled.div`
@@ -79,8 +74,6 @@ export const ImageWrapper = styled.img`
 			max-height: 70vh;
 		`,
 	})}
-
-	border: 1px solid blue;
 `;
 
 const CommonControllerStyle = css`
@@ -102,8 +95,6 @@ export const LeftController = styled.div`
 			width: 50%;
 		`,
 	})}
-
-  background-color: rgba(0, 0, 0, 0.2);
 `;
 
 export const RightController = styled.div`
@@ -111,6 +102,4 @@ export const RightController = styled.div`
 
 	right: 0;
 	width: 50%;
-
-	background-color: rgba(0, 0, 0, 0.3);
 `;
