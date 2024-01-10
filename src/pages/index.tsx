@@ -3,10 +3,13 @@ import { GlobalStyle } from '@/style/global.styled';
 import { Global } from '@emotion/react';
 import * as LayoutStyled from '@/components/layout/index.styled';
 import GNB from '@/components/layout/GNB';
-import Home from '@/components/home';
 import Profile from '@/components/profile';
 import Head from 'next/head';
-import { useHomeClientProps } from '@/components/home/useHomeClientProps';
+import useLayoutIsMobile from '@/hooks/useLayoutIsMobile';
+import PcHome from '@/components/home/Pc';
+import MobileHome from '@/components/home/Mobile';
+import useHomeMobileProps from '@/components/home/useHomeMobileProps';
+import useHomePcProps from '@/components/home/useHomePcProps';
 
 type PageType = 'home' | 'profile';
 
@@ -15,6 +18,8 @@ const description = 'an architecture practice';
 const thumbnail = '/assets/common/thumbnail.jpg';
 
 const Index = () => {
+	const isMobile = useLayoutIsMobile();
+
 	const [type, setType] = useState<PageType>('home');
 
 	const handleClickLogo = () => {
@@ -25,7 +30,8 @@ const Index = () => {
 		}
 	};
 
-	const homeClientProps = useHomeClientProps();
+	const homeMobileProps = useHomeMobileProps();
+	const homePcProps = useHomePcProps();
 
 	return (
 		<>
@@ -47,7 +53,8 @@ const Index = () => {
 			<Global styles={GlobalStyle} />
 			<LayoutStyled.Container>
 				<GNB handleClickLogo={handleClickLogo} />
-				{type === 'home' && <Home {...homeClientProps} />}
+				{type === 'home' && isMobile && <MobileHome {...homeMobileProps} />}
+				{type === 'home' && !isMobile && <PcHome {...homePcProps} />}
 				{type === 'profile' && <Profile />}
 			</LayoutStyled.Container>
 		</>
