@@ -51,11 +51,18 @@ const useHomePcProps = (): PcHomeProps => {
 		};
 	}, [projectData, leftImgIdx]);
 
+	const initializeImageIdxes = () => {
+		setLeftImgIdx(0);
+		setRightImgIdx(0);
+	};
+
 	const handleLeftClick = () => {
+		initializeImageIdxes();
 		setProjectIdx((prev) => (prev - 1 + totalProjectCount) % totalProjectCount);
 	};
 
 	const handleRightClick = () => {
+		initializeImageIdxes();
 		setProjectIdx((prev) => (prev + 1) % totalProjectCount);
 	};
 
