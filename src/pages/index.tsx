@@ -6,6 +6,7 @@ import GNB from '@/components/layout/GNB';
 import Home from '@/components/home';
 import Profile from '@/components/profile';
 import Head from 'next/head';
+import { useHomeClientProps } from '@/components/home/useHomeClientProps';
 
 type PageType = 'home' | 'profile';
 
@@ -23,6 +24,8 @@ const Index = () => {
 			setType('profile');
 		}
 	};
+
+	const homeClientProps = useHomeClientProps();
 
 	return (
 		<>
@@ -44,7 +47,7 @@ const Index = () => {
 			<Global styles={GlobalStyle} />
 			<LayoutStyled.Container>
 				<GNB handleClickLogo={handleClickLogo} />
-				{type === 'home' && <Home />}
+				{type === 'home' && <Home {...homeClientProps} />}
 				{type === 'profile' && <Profile />}
 			</LayoutStyled.Container>
 		</>

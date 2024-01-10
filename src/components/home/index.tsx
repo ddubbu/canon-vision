@@ -37,12 +37,14 @@ const ImageController: React.FC<{ projectIdx: number; imgSrcList: string[] }> = 
 	);
 };
 
-const Home: React.FC = () => {
-	const length = PROJECT_DATA.length;
+export type HomeProps = {
+	projectIdx: number;
+	handleLeftClick: () => void;
+	handleRightClick: () => void;
+};
 
+const Home: React.FC<HomeProps> = ({ projectIdx, handleLeftClick, handleRightClick }) => {
 	const isMobile = useLayoutIsMobile();
-
-	const [projectIdx, setProjectIdx] = useState(0);
 
 	const projectDataInPc = PROJECT_DATA[projectIdx];
 
@@ -51,14 +53,6 @@ const Home: React.FC = () => {
 			return [...acc, ...cur.imageList, ...cur.draftList];
 		}, [] as string[]);
 	}, []);
-
-	const handleLeftClick = () => {
-		setProjectIdx((prev) => (prev - 1 + length) % length);
-	};
-
-	const handleRightClick = () => {
-		setProjectIdx((prev) => (prev + 1) % length);
-	};
 
 	if (isMobile) {
 		return (
