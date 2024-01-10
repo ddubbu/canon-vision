@@ -18,9 +18,11 @@ const useHomePcProps = (): PcHomeProps => {
 		const src = imgSrcList[leftImgIdx];
 		const handleLeftClick = () => {
 			// fyi. 음수 방지를 위해 length를 더해줌
+			console.log('left:', leftImgIdx);
 			setLeftImgIdx((prev) => (prev - 1 + length) % length);
 		};
 		const handleRightClick = () => {
+			console.log('left', leftImgIdx);
 			setLeftImgIdx((prev) => (prev + 1) % length);
 		};
 
@@ -49,7 +51,7 @@ const useHomePcProps = (): PcHomeProps => {
 			handleLeftClick,
 			handleRightClick,
 		};
-	}, [projectData, leftImgIdx]);
+	}, [projectData, rightImgIdx]);
 
 	const initializeImageIdxes = () => {
 		setLeftImgIdx(0);
