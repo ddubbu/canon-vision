@@ -5,7 +5,6 @@ import * as LayoutStyled from '@/components/layout/index.styled';
 import GNB from '@/components/layout/GNB';
 import Profile from '@/components/profile';
 import Head from 'next/head';
-import useLayoutIsMobile from '@/hooks/useLayoutIsMobile';
 import PcHome from '@/components/home/Pc';
 import MobileHome from '@/components/home/Mobile';
 import useHomeMobileProps from '@/components/home/useHomeMobileProps';
@@ -18,8 +17,6 @@ const description = 'an architecture practice';
 const thumbnail = '/assets/common/thumbnail.jpg';
 
 const Index = () => {
-	const isMobile = useLayoutIsMobile();
-
 	const [type, setType] = useState<PageType>('home');
 
 	const handleClickLogo = () => {
@@ -53,8 +50,16 @@ const Index = () => {
 			<Global styles={GlobalStyle} />
 			<LayoutStyled.Container>
 				<GNB handleClickLogo={handleClickLogo} />
-				{type === 'home' && isMobile && <MobileHome {...homeMobileProps} />}
-				{type === 'home' && !isMobile && <PcHome {...homePcProps} />}
+				{type === 'home' && (
+					<LayoutStyled.MobileDisplay>
+						<MobileHome {...homeMobileProps} />
+					</LayoutStyled.MobileDisplay>
+				)}
+				{type === 'home' && (
+					<LayoutStyled.PCDisplay>
+						<PcHome {...homePcProps} />
+					</LayoutStyled.PCDisplay>
+				)}
 				{type === 'profile' && <Profile />}
 			</LayoutStyled.Container>
 		</>
